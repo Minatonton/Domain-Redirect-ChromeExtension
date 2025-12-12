@@ -84,8 +84,21 @@ chrome.runtime.onStartup.addListener(() => {
   });
 });
 
+async function openOptionsPage() {
+  if (chrome.runtime.openOptionsPage) {
+    try {
+      await chrome.runtime.openOptionsPage();
+      return;
+    } catch (error) {
+      console.warn('openOptionsPage failed, fallback to tabs.create', error);
+    }
+  }
+  const url = chrome.runtime.getURL('options.html');
+  await chrome.tabs.create({ url });
+}
+
 chrome.action.onClicked.addListener(() => {
-  chrome.runtime.openOptionsPage().catch((error) => {
+  openOptionsPage().catch((error) => {
     console.error('Failed to open options page', error);
   });
 });
