@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ドメインリダイレクト設定</title>
+    <link rel="stylesheet" href="options.css" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self';"
+    />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>Google へ強制リダイレクトするドメイン</h1>
+        <p>ここに登録したドメインへアクセスすると、必ず https://www.google.com/ へ移動します。</p>
+      </header>
+      <section class="panel">
+        <h2>ドメインの追加</h2>
+        <form id="domain-form">
+          <label for="domain-input">ドメインまたは *.example.com 形式</label>
+          <div class="input-row">
+            <input id="domain-input" type="text" placeholder="example.com" autocomplete="off" />
+            <button type="submit">追加</button>
+          </div>
+          <p class="note">入力例: example.com / *.news.com / example.co.jp</p>
+        </form>
+        <p id="feedback" class="feedback" aria-live="polite"></p>
+      </section>
+      <section class="panel">
+        <h2>登録済みドメイン</h2>
+        <ul id="domain-list" class="domain-list"></ul>
+      </section>
+    </main>
+    <script type="module" src="options.js"></script>
+  </body>
+</html>

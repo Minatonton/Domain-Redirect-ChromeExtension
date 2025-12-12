@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Domain Redirect Enforcer",
+  "version": "1.0.0",
+  "description": "Redirect listed domains to https://www.google.com/ immediately.",
+  "permissions": [
+    "storage",
+    "declarativeNetRequest"
+  ],
+  "host_permissions": ["*://*/*"],
+  "action": {
+    "default_title": "Domain Redirect Enforcer"
+  },
+  "options_page": "options.html",
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  }
+}
